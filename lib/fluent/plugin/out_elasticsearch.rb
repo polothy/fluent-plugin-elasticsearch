@@ -212,6 +212,10 @@ EOC
         @dump_proc = Yajl.method(:dump)
       end
 
+      if @user == ""
+        @user = nil
+        @password = nil
+      end
       if @user && m = @user.match(/%{(?<user>.*)}/)
         @user = URI.encode_www_form_component(m["user"])
       end
